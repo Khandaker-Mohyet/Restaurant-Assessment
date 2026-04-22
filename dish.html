@@ -1,0 +1,183 @@
+```html id="dish-detail-page"
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Dish Detail</title>
+
+  <!-- Bootstrap CSS -->
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+
+  <style>
+    .zoom-container {
+      overflow: hidden;
+      border-radius: 10px;
+    }
+
+    .zoom-container img {
+      width: 100%;
+      transition: transform 0.5s ease;
+    }
+
+    .zoom-container:hover img {
+      transform: scale(1.2);
+    }
+
+    .section-title {
+      margin: 40px 0 20px;
+    }
+  </style>
+</head>
+
+<body>
+
+<!-- ================= HEADER TOP ================= -->
+<div class="bg-dark text-light py-2">
+  <div class="container d-flex justify-content-between">
+    <div>
+      Email: info@restaurant.com | Phone: +880123456789
+    </div>
+    <div>
+      <a href="#" class="text-light me-3">Reservation</a>
+      <a href="#" class="text-light me-3">Login</a>
+      <a href="#" class="text-light">Register</a>
+    </div>
+  </div>
+</div>
+
+<!-- ================= NAVBAR ================= -->
+<nav class="navbar navbar-expand-lg navbar-light bg-light">
+  <div class="container">
+    <a class="navbar-brand fw-bold" href="#">Foodies</a>
+    <button class="navbar-toggler" data-bs-toggle="collapse" data-bs-target="#nav">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+
+    <div class="collapse navbar-collapse" id="nav">
+      <ul class="navbar-nav ms-auto">
+        <li class="nav-item"><a class="nav-link" href="/index.html">Home</a></li>
+        <li class="nav-item"><a class="nav-link" href="/menu.html">Menu</a></li>
+        <li class="nav-item"><a class="nav-link" href="/reservation.html">Reservation</a></li>
+        <li class="nav-item"><a class="nav-link" href="/about.html">About</a></li>
+        <li class="nav-item"><a class="nav-link" href="/contact.html">Contact</a></li>
+        <li class="nav-item"><a class="nav-link" href="/login.html">Login/Register</a></li>
+      </ul>
+    </div>
+  </div>
+</nav>
+
+<!-- ================= BREADCRUMB ================= -->
+<div class="container mt-3">
+  <nav>
+    <ol class="breadcrumb">
+      <li class="breadcrumb-item"><a href="/index.html">Home</a></li>
+      <li class="breadcrumb-item"><a href="/menu.html">Menu</a></li>
+      <li class="breadcrumb-item active">Pizza</li>
+    </ol>
+  </nav>
+</div>
+
+<!-- ================= MAIN SECTION ================= -->
+<div class="container mt-4">
+  <div class="row">
+
+    <!-- LEFT: IMAGE -->
+    <div class="col-md-6">
+      <div class="zoom-container">
+        <img src="https://images.unsplash.com/photo-1565299624946-b28f40a0ae38" alt="Pizza">
+      </div>
+    </div>
+
+    <!-- RIGHT: INFO -->
+    <div class="col-md-6">
+      <h2>Cheese Pizza</h2>
+      <h4 class="text-success">$10</h4>
+
+      <p><strong>Ingredients:</strong> Cheese, Tomato Sauce, Flour, Olive Oil</p>
+
+      <!-- Quantity -->
+      <div class="d-flex align-items-center mb-3">
+        <button class="btn btn-outline-dark" onclick="decrease()">-</button>
+        <input type="text" id="qty" value="1" class="form-control text-center mx-2" style="width:60px;">
+        <button class="btn btn-outline-dark" onclick="increase()">+</button>
+      </div>
+
+      <button class="btn btn-primary btn-lg">Order Now</button>
+    </div>
+
+  </div>
+
+  <!-- ================= DESCRIPTION ================= -->
+  <h3 class="section-title">Dish Details</h3>
+  <p>
+    This delicious cheese pizza is made with fresh ingredients and baked to perfection. 
+    Perfect for lunch or dinner with family and friends.
+  </p>
+
+  <h5>Nutrition Info</h5>
+  <ul>
+    <li>Calories: 250 kcal</li>
+    <li>Protein: 10g</li>
+    <li>Fat: 12g</li>
+  </ul>
+
+  <!-- ================= RELATED DISHES ================= -->
+  <h3 class="section-title">Related Dishes</h3>
+  <div class="row">
+
+    <div class="col-md-4">
+      <div class="card">
+        <img src="https://images.unsplash.com/photo-1550547660-d9450f859349" class="card-img-top">
+        <div class="card-body">
+          <h5>Burger</h5>
+          <p>$8</p>
+        </div>
+      </div>
+    </div>
+
+    <div class="col-md-4">
+      <div class="card">
+        <img src="https://images.unsplash.com/photo-1604908176997-125f25cc6f3d" class="card-img-top">
+        <div class="card-body">
+          <h5>Pasta</h5>
+          <p>$12</p>
+        </div>
+      </div>
+    </div>
+
+    <div class="col-md-4">
+      <div class="card">
+        <img src="https://images.unsplash.com/photo-1546069901-ba9599a7e63c" class="card-img-top">
+        <div class="card-body">
+          <h5>Steak</h5>
+          <p>$20</p>
+        </div>
+      </div>
+    </div>
+
+  </div>
+
+</div>
+
+<!-- ================= JS ================= -->
+<script>
+  function increase() {
+    let qty = document.getElementById("qty");
+    qty.value = parseInt(qty.value) + 1;
+  }
+
+  function decrease() {
+    let qty = document.getElementById("qty");
+    if (qty.value > 1) {
+      qty.value = parseInt(qty.value) - 1;
+    }
+  }
+</script>
+
+<!-- Bootstrap JS -->
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+
+</body>
+</html>
+
